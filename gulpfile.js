@@ -8,7 +8,7 @@ var gulp        = require('gulp');
     minifyCss   = require('gulp-minify-css');
 
 gulp.task('less',function(){
-    return gulp.src(['_less/main.less'])
+    return gulp.src(['_less/mixins.less','_less/main.less'])
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(concat('styles.css'))
