@@ -5,6 +5,7 @@ description: Front end exercise for Invision
 # Build settings
 markdown: kramdown
 permalink: /:title
+destination: _deploy
 
 # Default Settings
 defaults:
