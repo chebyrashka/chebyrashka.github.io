@@ -11,15 +11,6 @@ defaults:
   -
     scope:
       path: ""
-      type: "posts"
-    values:
-      author: "My Author" # Set default author name
-      categories: "cats"
-      layout: "post"
-      comments: true
-  -
-    scope:
-      path: ""
       type: "pages"
     values:
-      layout: "page"
+      layout: "default"
