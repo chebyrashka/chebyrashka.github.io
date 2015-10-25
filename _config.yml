@@ -1,11 +1,11 @@
 # Site settings
-title: Exercise: Simply Social
+title: Exercise - Simply Social
 description: Front end exercise for Invision
 
 # Build settings
 markdown: kramdown
 permalink: /:title
-destination: _deploy
+destination: _site
 
 # Default Settings
 defaults:
