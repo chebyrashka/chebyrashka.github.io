@@ -1,27 +1,42 @@
-<!-- Capture and store a URL -->
-{% capture location %}{{ page.url | split:'/' }}{% endcapture %}
-<header class="main-header" role="banner">
-  <div class="grid">
-    <div class="grid__col--12">
-      <a class="site-logo" href="{{ site.baseurl }}/" title="Webconfs.me – Home">
-        {{ site.title }}
-      </a>
-      <nav class="navbar" role="navigation">
-        <ul class="nav">
-        {% for page in site.pages %}
-          <!-- Compare the page title to the URL -->
-          {% assign current = page.title | downcase %}
+<!DOCTYPE html>
 
-          {% if page.title %}
-          <!-- Highlight item if it matches the current URL -->
-          <li {% if location == current %} class="nav__item--current" {% else %} class="nav__item" {% endif %}>
-            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          </li>
-          {% endif %}
-          
-        {% endfor %}
-        </ul>
-      </nav>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise: Simply Social</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <script src="https://use.typekit.net/uuc7ngd.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/css/styles.min.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+
+<header>
+    <div class="w">
+        <section class="logo">
+            <h1><a href="/">Simply Social</a></h1>
+        </section>
+
+        <a href="#!" class="newmsg">New Message</a>
+
+        <form method="post" action="#!">
+            <input type="text" name="searchterm" value="" />
+            <input type="submit" value="" />
+        </form>
+
+        <div class="settings">
+            <div class="avatar">
+                <a href="#!"><img src="/img/avatar-tuan-jessica.jpg" alt="Photo of Jessica Tuan" /></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>                    <li><a href="#">Followers</a></li>                    <li><a href="#">Following</a></li>                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-  </div>
 </header>

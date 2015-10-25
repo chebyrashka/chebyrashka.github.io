@@ -1,12 +1,6 @@
 # Site settings
-title: My Blog
-email: coolwebconfs@gmail.com
-description: My simple blog.
-baseurl: ""
-url: ""
-twitter_username: 
-avatar: "" # Set footer avatar
-paginate: 3
+title: Exercise: Simply Social
+description: Front end exercise for Invision
 
 # Build settings
 markdown: kramdown

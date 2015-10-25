@@ -1,49 +1,620 @@
----
-layout: default
----
-<div class="hero is-hidden-mobile"></div>
-<div class="grid">
-  <div class="grid__col--12">
-    <ul class="post">
-      <!-- This loops through the paginated posts -->
-      {% for post in paginator.posts %}
-        <li class="post__item">
-          <a class="post__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          <div class="post__meta">
-            <b class="post__author">{{ post.author }}</b>
-            <b class="post__sep">•</b>
-            <b class="post__date">{{ post.date | date: "%b %-d, %Y" }}</b>
-          </div>
-          {{ post.excerpt }}
-          <a class="btn--default" href="{{ post.url | prepend: site.baseurl }}">Read more</a>
-        </li>
-      {% endfor %}
-    </ul>
 
-Hello world!
-Is this taking?
 
-    <!-- Pagination links -->
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      {% if paginator.previous_page %}
-        <a class="pagination__arrow-prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% endif %}
+<section class="masthead">
 
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          {{ page }}
-        {% elsif page == 1 %}
-          <a class="pagination__page" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-        {% else %}
-          <a class="pagination__page" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
+    <form method="post" action="#!">
+        <input type="text" name="post" placeholder="What’s on your mind?" />
+        <a href="#!" class="btn-photo">Add Photo</a>
+        <a href="#!" class="btn-video">Add Video</a>
+    </form>
 
-      {% if paginator.next_page %}
-        <a class="pagination__arrow-next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% endif %}
-    </div>
-    {% endif %}
-  </div>
-</div>
+    <nav>
+        <div class="w">
+            <ul class="filter">
+                <li><a href="#" class="all on">All Posts</a></li>
+                <li><a href="#" class="photos">Photos</a></li>
+                <li><a href="#" class="videos">Videos</a></li>
+            </ul>
+    
+            <ul class="view-mode">
+                <li><a href="#!" class="view-list on" data-viewmode="view-list">List View</a></li>
+                <li><a href="#!" class="view-tile" data-viewmode="view-tile">Tile View</a></li>
+            </ul>
+        </div>
+    </nav>
+</section>
+
+
+<section class="main" role="main">
+    <section class="posts view-list">
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-soffes-sam.jpg" alt="Sam Soffes - Photo" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Sam Soffes</h2>
+                <h3 class="title">How to Get Inspired: the Right Way - Designmodo <a href="#">bit.ly/1hqgbQA</a> Good stuff from <a href="#">@designmodo</a>!</h3>
+            </div>
+
+
+            <div class="responses">
+                <div class="post">
+                    <div class="avatar">
+                        <img src="/img/avatar-bridges-jed.jpg" alt="Jed Bridges - Photo" />
+                    </div>
+
+                    <div class="content">
+                        <h2 class="author">Jed Bridges</h2>
+                        <h3 class="title">Great way to start the week. Thanks for sharing!</h3>
+                    </div>
+
+                    <nav class="tools">
+                        <ul>
+                            <li><a href="#!" class="repost">Repost</a></li>
+                            <li><a href="#!" class="like">Like</a></li>
+                            <li>1h</li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="post">
+                    <div class="avatar">
+                        <img src="/img/avatar-walker-ren.jpg" alt="Ren Walker - Photo" />
+                    </div>
+
+                    <div class="content">
+                        <h2 class="author">Ren Walker</h2>
+                        <h3 class="title">Feeling inspired now... thanks for great article <a href="#">@designmodo</a></h3>
+                    </div>
+
+                    <nav class="tools">
+                        <ul>
+                            <li><a href="#!" class="repost">Repost</a></li>
+                            <li><a href="#!" class="like">Like</a></li>
+                            <li>1h</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <form method="post" action="#!">
+                    <input type="text" placeholder="Reply" />
+                </form>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>    
+    
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-arnold-thomas.jpg" alt="Photo of Thomas Arnold" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Thomas Arnold</h2>
+                <h3 class="title">You have to see this bike. It will make your daily commute a absolute joy ride! <a href="http://vimeo.com/p/mV0PUrHRwQ/">vimeo.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-1.jpg" alt="Photo posted by Thomas Arnold" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+
+        </div>    
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-azim-sahiha.jpg" alt="Photo of Sahiha Azim" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Sahiha Azim</h2>
+                <h3 class="title">Sponsor // Bootstrap Responsive Templates <a href="#">bit.ly/1qfjLOl</a> <a href="#">#design</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>    
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-wong-michael.jpg" alt="Photo of Michael Wong" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Michael Wong</h2>
+                <h3 class="title">Great video, reminds me of summer as a kid <a href="http://instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo video">
+                <a href="#!"><img src="/img/feed-photo-11.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-brennan-john.jpg" alt="Photo of John Brennan" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">John Brennan</h2>
+                <h3 class="title">Love this picture  <a href="http://instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-2.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-bridges-jed.jpg" alt="Photo of Sam Soffes" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Jed Bridges</h2>
+                <h3 class="title">Thoughtful brand decisions vs. emotional brand decisions. <a href="http://ow.ly/vtT2i">ow.ly/vtT2i</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-burgess-scott.jpg" alt="Photo of Scott Burgess" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Scott Burgess</h2>
+                <h3 class="title">"Always be designing things - You will always get something out of your curiosity" a look inside PayPal <a href="@invisionapp">@invisionapp:</a> <a href="http://bit.ly/1oGODMf">bit.ly/1oGODMf</a></h3>
+            </div>
+
+            <div class="responses">
+                <div class="post">
+                    <div class="avatar">
+                        <img src="/img/avatar-bridges-jed.jpg" alt="Jed Bridges - Photo" />
+                    </div>
+
+                    <div class="content">
+                        <h2 class="author">Jed Bridges</h2>
+                        <h3 class="title">I love all these <a href="#desigerstories">#designerstories</a> by <a href="@invisionapp">@invisionapp</a></h3>
+                    </div>
+
+                    <nav class="tools">
+                        <ul>
+                            <li><a href="#!" class="repost">Repost</a></li>
+                            <li><a href="#!" class="like">Like</a></li>
+                            <li>1h</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <form method="post" action="#!">
+                    <input type="text" placeholder="Reply" />
+                </form>
+            </div>
+
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-giri-ignacio.jpg" alt="Photo of Ignacio Giri" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Ignacio Giri</h2>
+                <h3 class="title">Awesome! Check this out. <a href="http://instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo video">
+                <a href="#!"><img src="/img/feed-photo-12.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-gray-lauren.jpg" alt="Photo of Lauren Gray" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Lauren Gray</h2>
+                <h3 class="title">My view this morning is simply beautiful...  <a href="http://instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-13.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-gupta-pallavi.jpg" alt="Photo of Pallavi Gupta" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Pallavi Gupta</h2>
+                <h3 class="title">How to get animations out of your head. <a href="http://bit.ly/1q7BngO">bit.ly/1q7BngO</a> Funny and useful.</h3>
+            </div>
+
+            <div class="responses">
+                <div class="post">
+                    <div class="avatar">
+                        <img src="/img/avatar-hicks-ryan.jpg" alt="Photo of Ryan Hicks" />
+                    </div>
+
+                    <div class="content">
+                        <h2 class="author">Ryan Hicks</h2>
+                        <h3 class="title">Very funny, Iove it!</h3>
+                    </div>
+
+                    <nav class="tools">
+                        <ul>
+                            <li><a href="#!" class="repost">Repost</a></li>
+                            <li><a href="#!" class="like">Like</a></li>
+                            <li>1h</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <form method="post" action="#!">
+                    <input type="text" placeholder="Reply" />
+                </form>
+            </div>
+
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+        
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-laptev-oleg.jpg" alt="Photo of Oleg Laptev" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Oleg Laptev</h2>
+                <h3 class="title">Excited about <a href="@99U">@99U</a> Conf lineup this year <a href="http://conference.99u.com">conference.99u.com</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-miller-jeremy.jpg" alt="Photo of Jeremey Miller" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Jeremey Miller</h2>
+                <h3 class="title">Responsive Web Design in 2014: Stats and Trends: <a href="http://bit.ly/1lE5QDM">bit.ly/1lE5QDM</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+        
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-morera-jon.jpg" alt="Photo of Jon Morera" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Jon Morera</h2>
+                <h3 class="title">Time to take a break! <a href="http://instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-9.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-orsow-andy.jpg" alt="Photo of Jon Morera" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Andy Orsow</h2>
+                <h3 class="title">Six Ideas for your Successful Landing Page <a href="http://owl.li/uO2em">owl.li/uO2em</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-park-chloe.jpg" alt="Photo of Chloe Park" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Chloe Park</h2>
+                <h3 class="title">8 Apps to Turn Your Pipe Dreams Into Prototypes <a href="http://on.mash.to/1oubyu8">on.mash.to/1oubyu8</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-riley-scott.jpg" alt="Photo of Riley Scott" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Riley Scott</h2>
+                <h3 class="title">Need some reading? 11 free ebooks for designers | Creative Bloq <a href="http://bit.ly/1lE5QDM">bit.ly/1lE5QDM</a></h3>
+            </div>
+
+            <div class="responses">
+                <div class="post">
+                    <div class="avatar">
+                        <img src="/img/avatar-seur-karem.jpg" alt="Photo of Karem Seur" />
+                    </div>
+
+                    <div class="content">
+                        <h2 class="author">Karem Seur</h2>
+                        <h3 class="title">Just in time for vacation, thanks!</h3>
+                    </div>
+
+                    <nav class="tools">
+                        <ul>
+                            <li><a href="#!" class="repost">Repost</a></li>
+                            <li><a href="#!" class="like">Like</a></li>
+                            <li>1h</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <form method="post" action="#!">
+                    <input type="text" placeholder="Reply" />
+                </form>
+            </div>
+
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>  
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-robachaur-meg.jpg" alt="Photo of Meg Robachaur" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Meg Robachaur</h2>
+                <h3 class="title">Back to work! <a href="http://bit.ly/1hkXFdK">bit.ly/1hkXFdK</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-8.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-saik-jacqueline.jpg" alt="Photo of Jacqueline Saik" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Jacqueline Saik</h2>
+                <h3 class="title">I love these! <a href="http://vimeo.com/p/mV0PUrHRwQ/">vimeo.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo video">
+                <a href="#!"><img src="/img/feed-photo-10.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-shi-liang.jpg" alt="Photo of Liang Shi" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Liang Shi</h2>
+                <h3 class="title">#freelancers will enjoy @WDTrends for graphic and web design tips and inspiration.</h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-usborne-buzz.jpg" alt="Photo of Buzz Usborne" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Buzz Usborne</h2>
+                <h3 class="title">This guy ate all my crackers <a href="instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-4.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-vitor-leal.jpg" alt="Photo of Leal Vitor" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Leal Vitor</h2>
+                <h3 class="title">Had some time to play with the interactive portion of inDesign CC <a href="http://bit.ly/1lE5QD">bit.ly/1lE5QD</a></h3>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+    
+        <div class="post">
+            <div class="avatar">
+                <img src="/img/avatar-wellbrook-ed.jpg" alt="Photo of Ed Wellbrook" />
+            </div>
+        
+            <div class="content">
+                <h2 class="author">Ed Wellbrook</h2>
+                <h3 class="title">Last post for two weeks.... see ya! <a href="instagram.com/p/mV0PUrHRwQ/">instagram.com/p/mV0PUrHRwQ/</a></h3>
+            </div>
+
+            <div class="photo">
+                <a href="#!"><img src="/img/feed-photo-5.jpg" alt="Photo posted by" /></a>
+            </div>
+
+            <nav class="tools">
+                <ul>
+                    <li><a href="#!" class="repost">Repost</a></li>
+                    <li><a href="#!" class="like">Like</a></li>
+                    <li>3m</li>
+                </ul>
+            </nav>
+        </div>
+    
+        
+
+    </section>
+
+    <a href="#!" class="load-more">Load More</a>
+
+</section>
+
