@@ -836,6 +836,7 @@ $(document).ready(function () {
 
     //CLOSE MODAL 
     $('body').on('click', '.close', closeModal);
+    $('body').on('click', '.modal-bg', closeModal);
 
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
