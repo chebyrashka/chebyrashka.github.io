@@ -10,7 +10,11 @@ $(document).ready(function () {
 
 
     //SETTINGS DROPDOWN TOGGLE
-    $('.settings .avatar a').on('click', function () {
+    $('.settings .avatar a').on('mouseover click', function () {
+        $('.settings nav').toggleClass('on')
+    })
+
+    $('.settings .avatar a').on('mouseout', function () {
         $('.settings nav').toggleClass('on')
     })
 
