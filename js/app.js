@@ -619,19 +619,8 @@ $(document).ready(function () {
 
 
     //SETTINGS DROPDOWN TOGGLE
-    $('.settings .avatar a').on('mouseover click', function () {
+    $('.settings .avatar a').on('click', function () {
         $('.settings nav').toggleClass('on')
-    })
-
-    $('.settings .avatar a').on('mouseout', function () {
-        $('.settings nav').toggleClass('on')
-    })
-
-    //PROFILE SETTINGS FOCUS CHANGE
-    $('.profile-settings .bio input').on('focus', function () {
-        $(this).parent().addClass('on');
-    }).on('blur', function () {
-        $(this).parent().removeClass('on');
     })
 
 
