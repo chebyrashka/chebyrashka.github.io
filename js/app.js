@@ -620,7 +620,7 @@ $(document).ready(function () {
 
     //SETTINGS DROPDOWN TOGGLE
     $('.settings .avatar a').on('click', function () {
-        $('.settings nav').toggleClass('on')
+        //$('.settings nav').toggleClass('on')
     })
 
 
