@@ -22,6 +22,7 @@ gulp.task('less',function(){
 
 gulp.task('concatscripts', function () {
    return gulp.src([
+        'js/jquery.placeholder.js',
         'js/jquery.columnizer.js',
         'js/functions.js'
         ])

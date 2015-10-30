@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    //ADD PLACEHOLDER SUPPORT FOR IE9
+    $('input, textarea').placeholder();
+
     //ADD A VIDEO ICON FOR PHOTOS THAT HAVE VIDEOS
     $('.photo.video a').append('<span></span>');
 
